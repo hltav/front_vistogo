@@ -1,82 +1,113 @@
-<h2>Registro de Veículo:</h2>
+<main class="container">
+  <h2>Registro de Veículo:</h2>
 
-<form action="">
+  <form action="">
+    <div class="formvehicledata">
+      <div class="datastyle">
+        <div class="vehicledata">
+          <label for="placa">Placa:</label>
+          <input type="text" id="placa" name="placa" required />
+        </div>
+        <div class="vehicledata">
+          <label for="renavam">Renavam:</label>
+          <input type="text" id="renavam" name="renavam" required />
+        </div>
+        <div class="vehicledata">
+          <label for="marca">Marca:</label>
+          <input type="text" id="marca" name="marca" required />
+        </div>
+        <div class="vehicledata">
+          <label for="km">km:</label>
+          <input type="text" id="km" name="km" required />
+        </div>
+      </div>
 
-<div class="formvehicledata">
+      <div class="datastyle">
+        <div class="vehicledata">
+          <label for="chassi">Chassi:</label>
+          <input type="text" id="chassi" name="chassi" required />
+        </div>
+        <div class="vehicledata">
+          <label for="uf">UF:</label>
+          <input type="text" id="uf" name="uf" required />
+        </div>
+        <div class="vehicledata">
+          <label for="modelo">Modelo:</label>
+          <input type="text" id="modelo" name="modelo" required />
+        </div>
 
-    <div class="datastyle">
         <div class="vehicledata">
-            <label for="placa">Placa:</label>
-            <input type="text" id="placa" name="placa" required>
+          <label for="combustivel">Nível do combustível:</label>
+          <select id="combustivel" name="nivel_comb" required>
+            <option value="">Selecione</option>
+            <option value="Cheio">Cheio</option>
+            <option value="Meio">Meio</option>
+            <option value="Vazio">Vazio</option>
+          </select>
         </div>
-        <div class="vehicledata">
-            <label for="renavam">Renavam:</label>
-            <input type="text" id="renavam" name="renavam" required>
-        </div>
-        <div class="vehicledata">
-            <label for="marca">Marca:</label>
-            <input type="text" id="marca" name="marca" required>
-        </div>
-        <div class="vehicledata">
-            <label for="km">km:</label>
-            <input type="text" id="km" name="km" required>
-        </div>
+      </div>
     </div>
 
-    <div class="datastyle">
+    <h2>Fotos do Veículo:</h2>
 
-        <div class="vehicledata">
-            <label for="chassi">Chassi:</label>
-            <input type="text" id="chassi" name="chassi" required>
-        </div>
-        <div class="vehicledata">
-            <label for="uf">UF:</label>
-            <input type="text" id="uf" name="uf" required>
-        </div>
-        <div class="vehicledata">
-            <label for="modelo">Modelo:</label>
-            <input type="text" id="modelo" name="modelo" required>
-        </div>
-
-        <div class="vehicledata">
-            <label for="combustivel">Nível do combustível:</label>
-            <select id="combustivel" name="nivel_comb" required>
-                <option value="">Selecione</option>
-                <option value="Cheio">Cheio</option>
-                <option value="Meio">Meio</option>
-                <option value="Vazio">Vazio</option>
-            </select>
-        </div>
-
-    </div>
-
-</div>
-
-<h2>Fotos do Veículo:</h2>
-
-<div class="photo">
-
-    <div class="photodata">
+    <div class="photo">
+      <div class="photodata">
         <label for="foto_placa">Foto da Placa:</label>
-        <input type="file" id="foto_placa" name="foto_placa" accept="image/*" required class="inputphoto">
-    </div>
-    <div class="photodata">
+        <input
+          type="file"
+          id="foto_placa"
+          name="foto_placa"
+          accept="image/*"
+          required
+          class="inputphoto"
+        />
+      </div>
+      <div class="photodata">
         <label for="foto_dianteira">Foto Dianteira:</label>
-        <input type="file" id="foto_dianteira" name="foto_dianteira" accept="image/*" required class="inputphoto">
-    </div>
-    <div class="photodata">
+        <input
+          type="file"
+          id="foto_dianteira"
+          name="foto_dianteira"
+          accept="image/*"
+          required
+          class="inputphoto"
+        />
+      </div>
+      <div class="photodata">
         <label for="foto_traseira">Foto Traseira:</label>
-        <input type="file" id="foto_traseira" name="foto_traseira" accept="image/*" required class="inputphoto">
-    </div>
-    <div class="photodata">
+        <input
+          type="file"
+          id="foto_traseira"
+          name="foto_traseira"
+          accept="image/*"
+          required
+          class="inputphoto"
+        />
+      </div>
+      <div class="photodata">
         <label for="foto_hodometro">Foto do Hodômetro:</label>
-        <input type="file" id="foto_hodometro" name="foto_hodometro" accept="image/*" required class="inputphoto">
-    </div>
-    <div class="photodata">
+        <input
+          type="file"
+          id="foto_hodometro"
+          name="foto_hodometro"
+          accept="image/*"
+          required
+          class="inputphoto"
+        />
+      </div>
+      <div class="photodata">
         <label for="foto_banco_dianteiro">Foto do Banco Dianteiro:</label>
-        <input type="file" id="foto_banco_dianteiro" name="foto_banco_dianteiro" accept="image/*" required class="inputphoto">
+        <input
+          type="file"
+          id="foto_banco_dianteiro"
+          name="foto_banco_dianteiro"
+          accept="image/*"
+          required
+          class="inputphoto"
+        />
+      </div>
     </div>
-</div>
 
-<input type="submit" value="Enviar" id="submit">
-</form>
+    <input type="submit" value="Enviar" id="submit" />
+  </form>
+</main>

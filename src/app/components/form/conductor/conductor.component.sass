@@ -1,20 +1,28 @@
-h1
-    text-align: center
-    margin: 30px 0
-
-form
-
+main
     display: flex
     flex-direction: column
-    gap: 10px
+    width: 90%
+    margin: 40px auto
 
+    h1
+        text-align: center
+        margin: 30px 0
+       
+
+    form
+
+        display: flex
+        flex-direction: column
+        gap: 10px
+        color: hsl(213, 96%, 18%)
     h2
         text-align: center
         margin: 25px 0
+       
 
     input
-        width: 100%
-        border: 1px solid #000000
+        width: 90%
+        border: 1px solid hsl(213, 96%, 18%)
         border-radius: 5px
         outline: none
         height: 30px
@@ -26,13 +34,32 @@ form
         font-size: 20px
         font-weight: 700
 
+    .docdatastyle
+        display: flex
+        gap: 20px
+
+        .docdata
+
+            .inputdoc
+                display: flex
+                flex-wrap: wrap
+                justify-content: space-between
+
+                .docinput
+                    width: 80%
+
     .inputstyle
         display: flex
         gap: 10px
+        justify-content: space-between
 
     #selfiedata
         display: flex
         justify-content: space-between
+        
+        input 
+            border: 1px solid hsl(213, 96%, 18%)
+            color:  hsl(213, 96%, 18%)
 
     #selfiedata input
         width: 66%
@@ -40,3 +67,20 @@ form
         font-size: 22px
         font-weight: 500
         cursor: pointer
+
+    .submitstyle
+        width: 100%
+        display: flex
+        justify-content: center
+
+        button
+            color: hsl(213, 96%, 18%)
+            border-radius: 10px
+            border: none
+            height: 70px
+            cursor: pointer
+            font-size: 25px
+            font-weight: 700
+            background-color: hsl(228, 100%, 84%)
+            padding: 0 25px
+            margin: 30px 0 
