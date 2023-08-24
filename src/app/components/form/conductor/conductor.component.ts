@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { ConductorService } from 'src/app/services/conductor.service';
 
 @Component({
@@ -6,55 +8,83 @@ import { ConductorService } from 'src/app/services/conductor.service';
   templateUrl: './conductor.component.html',
   styleUrls: ['./conductor.component.sass']
 })
-export class ConductorComponent implements OnInit {
+export class ConductorComponent implements OnInit{
 
-  form : any 
+  form!: FormGroup 
+  formData : any
 
 
-  constructor(private conductorService: ConductorService) { }
+  constructor(
+    private conductor: ConductorService,
+    private formBuilder: FormBuilder, 
+    private router: Router,
+  ) { }
 
-  ngOnInit(): void {
-    this.getConductors();
+  ngOnInit() {
+    
+    this.form = this.formBuilder.group({
+      nome: ['', Validators.required],
+      cpf: ['', Validators.required],
+      rg: ['', Validators.required],
+      phone: ['', Validators.required],
+      cnh: ['', Validators.required],
+      direcction: ['', Validators.required],
+       
+    });
   }
 
-  getConductors(): void {
-    this.conductorService.getConductors().subscribe(
-      (data) => {
-        console.log(data); // Faça o que quiser com os dados recebidos
-      },
-      (error) => {
-        console.error('Erro ao obter condutores:', error);
+  submitForm() {
+    if (this.form.valid) {
+      
+      const formData = {
+        name: this.form.value.nome,
+        cpf: this.form.value.cpf,
+        rg: this.form.value.rg,
+        fone: this.form.value.fone,
+        cnh: this.form.value.cnh,
+        endereco: this.form.value.endereco,
+        
+
       }
-    );
+      
+      this.conductor.createConductor(formData).subscribe(
+        () => {
+          alert("Seu cadastro foi realizado com sucesso!");
+        },
+        (error) => {
+          if (error.status === 422) {
+            console.log('Ocorreu um erro de validação.');
+          } else {
+            console.log('Erro desconhecido:', error);
+          }
+        }
+      );
+    }
   }
 
-  createConductor(): void {
-    const newConductor = {
-      // Preencha com os dados do novo condutor
-    };
+  // submitForm() {
+   
+  //   if (this.form.valid) {
+  //     const formData = new FormData();
 
-    this.conductorService.createConductor(newConductor).subscribe(
-      (response) => {
-        console.log('Conductor criado com sucesso:', response);
-      },
-      (error) => {
-        console.error('Erro ao criar condutor:', error);
-      }
-    );
-  }
+  //     formData.append('nome', this.form.get('nome')!.value);
+  //     formData.append('CPF', this.form.get('CPF')!.value);
+  //     formData.append('RG', this.form.get('RG')!.value);
+  //     formData.append('phone', this.form.get('phone')!.value);
+  //     formData.append('CNH', this.form.get('CNH')!.value);
+  //     formData.append('direcction', this.form.get('direcction')!.value);
+  //     formData.append('selfie', this.form.get('selfie')!.value);
 
-  submitForm(formData: any): void {
-    // Chame o método do serviço para criar o condutor
-    this.conductorService.createConductor(formData).subscribe(
-      (response) => {
-        console.log('Conductor criado com sucesso:', response);
-        // Faça algo após o sucesso, como exibir uma mensagem ao usuário
-      },
-      (error) => {
-        console.error('Erro ao criar condutor:', error);
-        // Lide com o erro, como exibir uma mensagem de erro ao usuário
-      }
-    );
-  }
-
+     
+  //     this.conductor.createConductor(formData).subscribe(() => {
+  //       alert("Seu cadastro foi realizado com sucesso!");
+  //     }, (error)=> {
+  //       console.log(`error`, error);
+  //     })
+      
+      
+  //   }
+  // }
+ 
+  
 }

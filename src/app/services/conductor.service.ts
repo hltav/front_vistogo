@@ -17,6 +17,12 @@ export class ConductorService {
   }
 
   createConductor(data: any): Observable<any> {
+
     return this.http.post(this.baseUrl + 'conductor', data);
+
+    return this.http.post(`${this.baseUrl}/conductor`, data)
+
+    // console.log(data)
+   
   }
 }

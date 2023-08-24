@@ -1,20 +1,20 @@
 <main>
   <h1>Registro de Condutor</h1>
-  <form (ngSubmit)="submitForm(form.value)">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
     <h2>Dados do Condutor:</h2>
     <div class="inputstyle">
       <label for="name">Nome:</label>
-      <input type="text" id="name" name="nome" required  />
+      <input type="text" id="name" formControlName="nome" required />
     </div>
 
     <div class="docdatastyle">
       <div class="docdata">
         <div class="inputdoc">
           <label for="cpf">CPF:</label>
-          <input type="text" id="cpf" name="CPF" required class="docinput" />
+          <input type="text" id="cpf" formControlName="cpf" required class="docinput" />
 
           <label for="rg">RG:</label>
-          <input type="text" id="rg" name="RG" required class="docinput" />
+          <input type="text" id="rg" formControlName="rg" required class="docinput" />
         </div>
       </div>
 
@@ -23,30 +23,31 @@
           <label for="fone">Fone:</label>
           <input
             type="text"
-            id="telefone"
-            name="phone"
+            id="fone"
+            formControlName="phone"
             required
             class="docinput"
+            
           />
 
           <label for="cnh">CNH:</label>
-          <input type="text" id="cnh" name="CNH" required class="docinput" />
+          <input type="text" id="cnh" formControlName="cnh" required class="docinput" />
         </div>
       </div>
     </div>
 
     <div class="inputstyle">
       <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="direcction" required />
+      <input type="text" id="endereco" formControlName="direcction" required />
     </div>
 
-    <div id="selfiedata">
+    <!-- <div id="selfiedata">
       <label for="selfie">Selfie com Documento:</label>
-      <input type="file" id="selfie" name="selfie" accept="image/*" required />
-    </div>
+      <input type="file" id="selfie" formControlName="selfie" accept="image/*" required />
+    </div> -->
 
     <div class="submitstyle">
-      <button type="submit">Registrar</button>
+      <button type="submit" (click)="submitForm()">Registrar</button>
     </div>
   </form>
 </main>
