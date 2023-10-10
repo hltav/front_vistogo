@@ -1,40 +1,44 @@
 main
-    
+
     h2
         text-align: center
         margin: 20px 0
+        font-size: 19px
 
     form
         display: flex
         flex-direction: column
         align-items: center
-    
 
         input
-            border: 1px solid #000000
+            border: 1px solid #00008B
             border-radius: 5px
             outline: none
-            height: 30px
-            margin-bottom: 10px
-            font-size: 22px
-
+            margin-bottom: 7px
+            font-size: 15px
+            text-transform: uppercase
         label
             margin-bottom: 10px
-            font-size: 20px
-            font-weight: 700
+            font-size: 16px
+            font-weight: 500
 
         #submit
-            width: 20%
-            height: 100%
-            margin: 20px 0
+            color: #ffffff
+            border-radius: 5px
+            border: none
             cursor: pointer
-            font-size: 20px
-            padding: 6px
+            font-size: 18px
             font-weight: 700
+            background-color: #00008B
+            padding: 10px
+            margin: 30px 0
+
+            &:hover
+                opacity: .7
 
         .formvehicledata
             display: flex
-            gap: 15px
+            gap: 30px
 
             .datastyle
 
@@ -42,21 +46,49 @@ main
                     display: flex
                     gap: 2px
                     justify-content: space-between
-                
 
                     select
-                        width: 40%
-                        font-size: 18px
+                        border: 1px solid #00008B
+                        color: #00008B
+                        border-radius: 5px
+                        background-color: #ffffff
+                        font-size: 16px
+                        width: 200px
+                        margin-bottom: 8px
+                        cursor: pointer
 
-        .photodata
+        .photo
+            width: 100%
+            
+            .photodata
+                width: 100%
+                display: flex
+                flex-direction: column
+                align-items: center
+                margin-bottom: 5px
+
+                .allphotos
+                    width: 80%
+
+                .inputphoto
+                    cursor: pointer
+                    width: 70%
+                    align-self: center
+
+        .submitstyle
             width: 100%
             display: flex
-            justify-content: space-between
-            margin-bottom: 5px
-
-            .inputphoto
-                width: 60%
-                background-color: #ffffff
-                font-size: 22px
-                font-weight: 500
+            justify-content: center
+                
+            button    
+                color: #ffffff
+                border-radius: 5px
+                border: none
                 cursor: pointer
+                font-size: 18px
+                font-weight: 700
+                background-color: #00008B
+                padding: 10px
+                margin: 30px 0
+                &:hover
+                    opacity: .7

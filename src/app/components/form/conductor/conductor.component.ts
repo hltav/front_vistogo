@@ -28,8 +28,11 @@ export class ConductorComponent implements OnInit{
       rg: ['', Validators.required],
       phone: ['', Validators.required],
       cnh: ['', Validators.required],
-      direcction: ['', Validators.required],
-       
+      address: ['', Validators.required],
+      houseNumber: ['', Validators.required],
+      district: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
     });
   }
 
@@ -40,10 +43,13 @@ export class ConductorComponent implements OnInit{
         name: this.form.value.nome,
         cpf: this.form.value.cpf,
         rg: this.form.value.rg,
-        fone: this.form.value.fone,
+        phone: this.form.value.phone,
         cnh: this.form.value.cnh,
-        endereco: this.form.value.endereco,
-        
+        address: this.form.value.address,
+        houseNumber: this.form.value.houseNumber,
+        district: this.form.value.district,
+        state: this.form.value.state,
+        city: this.form.value.city,        
 
       }
       
@@ -54,7 +60,9 @@ export class ConductorComponent implements OnInit{
         (error) => {
           if (error.status === 422) {
             console.log('Ocorreu um erro de validação.');
-          } else {
+          } else if(error.status ===409){
+            alert("CPF já cadastrado")
+          } else{
             console.log('Erro desconhecido:', error);
           }
         }
@@ -62,29 +70,5 @@ export class ConductorComponent implements OnInit{
     }
   }
 
-  // submitForm() {
-   
-  //   if (this.form.valid) {
-  //     const formData = new FormData();
-
-  //     formData.append('nome', this.form.get('nome')!.value);
-  //     formData.append('CPF', this.form.get('CPF')!.value);
-  //     formData.append('RG', this.form.get('RG')!.value);
-  //     formData.append('phone', this.form.get('phone')!.value);
-  //     formData.append('CNH', this.form.get('CNH')!.value);
-  //     formData.append('direcction', this.form.get('direcction')!.value);
-  //     formData.append('selfie', this.form.get('selfie')!.value);
-
-     
-  //     this.conductor.createConductor(formData).subscribe(() => {
-  //       alert("Seu cadastro foi realizado com sucesso!");
-  //     }, (error)=> {
-  //       console.log(`error`, error);
-  //     })
-      
-      
-  //   }
-  // }
  
-  
 }

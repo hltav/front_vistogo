@@ -1,49 +1,63 @@
 <main class="container">
   <h2>Registro de Veículo:</h2>
 
-  <form action="">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
     <div class="formvehicledata">
       <div class="datastyle">
         <div class="vehicledata">
-          <label for="placa">Placa:</label>
-          <input type="text" id="placa" name="placa" required />
+          <label for="plate">Placa:</label>
+          <input type="text" id="plate" formControlName="plate" maxlength="7" required />
         </div>
         <div class="vehicledata">
           <label for="renavam">Renavam:</label>
-          <input type="text" id="renavam" name="renavam" required />
+          <input type="text" id="renavam" formControlName="renavam" maxlength="11" required />
         </div>
         <div class="vehicledata">
-          <label for="marca">Marca:</label>
-          <input type="text" id="marca" name="marca" required />
+          <label for="markId">Marca:</label>
+          <select id="markId" formControlName="markId" required>
+            <option value="" disabled selected>Selecione uma marca</option>
+            <option *ngFor="let mark of marks" [value]="mark.id">{{ mark.name }}</option>
+          </select>
         </div>
         <div class="vehicledata">
           <label for="km">km:</label>
-          <input type="text" id="km" name="km" required />
+          <input type="text" id="km" formControlName="km" required />
+        </div>
+
+        <div class="vehicledata">
+          <label for="categoryId">Categoria:</label>
+          <select id="categoryId" formControlName="categoryId" required>
+            <option value="" disabled selected>Selecione uma categoria</option>
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
         </div>
       </div>
 
       <div class="datastyle">
         <div class="vehicledata">
-          <label for="chassi">Chassi:</label>
-          <input type="text" id="chassi" name="chassi" required />
+          <label for="chassis">Chassi:</label>
+          <input type="text" id="chassis" formControlName="chassis" maxlength="17" required />
         </div>
         <div class="vehicledata">
           <label for="uf">UF:</label>
-          <input type="text" id="uf" name="uf" required />
+          <input type="text" id="uf" formControlName="uf" required />
         </div>
         <div class="vehicledata">
-          <label for="modelo">Modelo:</label>
-          <input type="text" id="modelo" name="modelo" required />
+          <label for="model">Modelo:</label>
+          <input type="text" id="model" formControlName="model" required />
         </div>
 
         <div class="vehicledata">
-          <label for="combustivel">Nível do combustível:</label>
-          <select id="combustivel" name="nivel_comb" required>
-            <option value="">Selecione</option>
-            <option value="Cheio">Cheio</option>
-            <option value="Meio">Meio</option>
-            <option value="Vazio">Vazio</option>
-          </select>
+          <label for="year">Ano:</label>
+          <input type="text" id="year" formControlName="year" required />
+        </div>
+
+        <div class="vehicledata">
+          <label for="price">Preço:</label>
+          <input type="text" id="price" formControlName="price" required/>
+          <!-- <input type="text" id="price" formControlName="price" required [value]="priceValue | currency:'BRL':'symbol':'1.2-2'" /> -->
         </div>
       </div>
     </div>
@@ -52,62 +66,27 @@
 
     <div class="photo">
       <div class="photodata">
-        <label for="foto_placa">Foto da Placa:</label>
+        <label for="allphotos" class="allphotos"
+          >Adicione as seguintes fotos do veículo:</label
+        >
+        <label for="allphotos" class="allphotos">
+          Dianteira, Traseira, Laterais Direita e Esquerda, Bancos Dianteiros,
+          Bancos traseiros, Painel e Hodômetro </label
+        ><br />
         <input
           type="file"
-          id="foto_placa"
+          class="allphotos"
+          id="allphotos"
           name="foto_placa"
           accept="image/*"
           required
           class="inputphoto"
-        />
-      </div>
-      <div class="photodata">
-        <label for="foto_dianteira">Foto Dianteira:</label>
-        <input
-          type="file"
-          id="foto_dianteira"
-          name="foto_dianteira"
-          accept="image/*"
-          required
-          class="inputphoto"
-        />
-      </div>
-      <div class="photodata">
-        <label for="foto_traseira">Foto Traseira:</label>
-        <input
-          type="file"
-          id="foto_traseira"
-          name="foto_traseira"
-          accept="image/*"
-          required
-          class="inputphoto"
-        />
-      </div>
-      <div class="photodata">
-        <label for="foto_hodometro">Foto do Hodômetro:</label>
-        <input
-          type="file"
-          id="foto_hodometro"
-          name="foto_hodometro"
-          accept="image/*"
-          required
-          class="inputphoto"
-        />
-      </div>
-      <div class="photodata">
-        <label for="foto_banco_dianteiro">Foto do Banco Dianteiro:</label>
-        <input
-          type="file"
-          id="foto_banco_dianteiro"
-          name="foto_banco_dianteiro"
-          accept="image/*"
-          required
-          class="inputphoto"
+          multiple
         />
       </div>
     </div>
-
-    <input type="submit" value="Enviar" id="submit" />
+    <div class="submitstyle">
+      <button type="submit">Enviar</button>
+    </div>
   </form>
 </main>

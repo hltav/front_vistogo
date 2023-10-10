@@ -1,0 +1,12 @@
+<main>
+    <h2>Categorias</h2>
+    <ul>
+      <li *ngFor="let category of categories$ | async">{{ category.name }}</li>
+    </ul>
+  
+    <h2>Marcas</h2>
+    <ul>
+      <li *ngFor="let mark of marks$ | async">{{ mark.name }}</li>
+    </ul>
+  </main>
+  

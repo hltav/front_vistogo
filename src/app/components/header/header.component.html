@@ -1,7 +1,67 @@
 <nav>
   <ul>
-    <li><button routerLink="/">Home</button></li>
-    <li><button routerLink="conductor">Condutor</button></li>
-    <li><button routerLink="vehicleData">Veículo</button></li>
+    <li class="menu-item">
+      <button (click)="toggleMenu('home')" routerLink="/">Home</button>
+    </li>
+    <li class="menu-item">
+      <button (click)="toggleMenu('conductor')">Condutor</button>
+      <div class="aux-container" *ngIf="showMenu === 'conductor'"></div>
+      <div class="menu-container" *ngIf="showMenu === 'conductor'">
+        <button
+          class="slide-in"
+          routerLink="conductor"
+          (click)="toggleMenu(null)"
+        >
+          Registrar Condutor
+        </button>
+        <button
+          class="slide-in"
+          routerLink="viewConductor"
+          (click)="toggleMenu(null)"
+        >
+          Condutores Registrados
+        </button>
+      </div>
+    </li>
+    <li class="menu-item">
+      <button (click)="toggleMenu('vehicle')">Veículo</button>
+      <div class="aux-container" *ngIf="showMenu === 'vehicle'"></div>
+      <div class="menu-container" *ngIf="showMenu === 'vehicle'">
+        <button
+          class="slide-in"
+          routerLink="vehicleData"
+          (click)="toggleMenu(null)"
+        >
+          Registrar Veículos
+        </button>
+        <button
+          class="slide-in"
+          routerLink="viewVehicle"
+          (click)="toggleMenu(null)"
+        >
+          Veículos Registrados
+        </button>
+      </div>
+    </li>
+    <li class="menu-item">
+      <button (click)="toggleMenu('catAndMark')">Marcas</button>
+      <div class="aux-container" *ngIf="showMenu === 'catAndMark'"></div>
+      <div class="menu-container" *ngIf="showMenu === 'catAndMark'">
+        <button
+          class="slide-in"
+          routerLink="catAndMark"
+          (click)="toggleMenu(null)"
+        >
+          Registrar Marcas
+        </button>
+        <button
+          class="slide-in"
+          routerLink="viewCatAndMark"
+          (click)="toggleMenu(null)"
+        >
+          Marcas Registradas
+        </button>
+      </div>
+    </li>
   </ul>
 </nav>

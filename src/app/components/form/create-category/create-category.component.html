@@ -1,0 +1,25 @@
+<main>
+  <h2>Criar Categoria</h2>
+
+  <form [formGroup]="formCategory" (ngSubmit)="submitCategory()">
+    <div class="createcategory">
+      <label for="name">Nova Categoria</label>
+      <input type="text" formControlName="name" id="name" />
+    </div>
+
+    <div class="submitstyle">
+      <button type="submit">Criar</button>
+    </div>
+  </form>
+
+  <h2>Inserir Modelo</h2>
+  <form [formGroup]="formMark" (ngSubmit)="submitMark()">
+    <div class="createmodel">
+      <label for="name"> Inserir Marca</label>
+      <input type="text" formControlName="name" id="name" />
+    </div>
+    <div class="submitstyle">
+      <button type="submit">Inserir</button>
+    </div>
+  </form>
+</main>
