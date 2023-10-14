@@ -9,6 +9,7 @@ import { ViewConductorComponent } from './components/hiddenButtons/view-conducto
 import { ViewCatAndMarkComponent } from './components/hiddenButtons/view-cat-and-mark/view-cat-and-mark.component';
 
 
+
 const routes: Routes = [
   {path:" ", component: StartComponent},
   {path:"conductor", component: ConductorComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"viewVehicle", component: ViewVehicleComponent},
   {path:"viewConductor", component: ViewConductorComponent},
   {path:"viewCatAndMark", component: ViewCatAndMarkComponent},
+  
 ];
 
 @NgModule({

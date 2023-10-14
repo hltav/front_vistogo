@@ -1,0 +1,223 @@
+<!-- <div class="container" *ngIf="vehicle">
+  <h3 class="close" (click)="closeModal()">X</h3>
+  <div class="mainmodel">
+    <h2>Dados Completos do Condutor</h2>
+    <div class="content-camp">
+      <div class="camp-name">
+        <label for="plate">Placa:</label>
+        <label for="renavam">Renavam:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="plate"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.plate"
+        />
+        <input
+          type="text"
+          id="renavam"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.renavam"
+        />
+      </div>
+      <div class="camp-name">
+        <label for="model">Modelo:</label>
+        <label for="price">Preço:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="model"
+          required
+          class="input-content"
+          [(ngModel)]="vehicle.model"
+        />
+        <input
+          type="text"
+          id="price"
+          required
+          class="input-content"
+          [(ngModel)]="vehicle.price"
+        />
+      </div>
+    </div>
+    <div class="content-camp">
+      <div class="camp-name">
+        <label for="mark">Marca:</label>
+        <label for="km">KM:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="mark"
+          required
+          class="input-content"
+          maxlength="11"
+          [value]="vehicle.mark.name"
+        />
+        <input
+          type="text"
+          id="km"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.km"
+        />
+      </div>
+      <div class="camp-name">
+        <label for="category">Categoria:</label>
+        <label for="chassis">Chassi:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="category"
+          required
+          class="input-content"
+          [value]="vehicle.category.name"
+        />
+        <input
+          type="text"
+          id="chassis"
+          required
+          class="input-content"
+          [(ngModel)]="vehicle.chassis"
+        />
+      </div>
+    </div>
+
+    <div class="content-camp">
+      <div class="last-camp">
+        <label for="uf">Estado:</label>
+        <input
+          type="text"
+          id="uf"
+          required
+          class="input-last"
+          [(ngModel)]="vehicle.uf"
+        />
+      </div>
+      <div class="last-camp">
+        <label for="year">Ano:</label>
+
+        <input
+          type="text"
+          id="year"
+          required
+          class="input-last"
+          [(ngModel)]="vehicle.year"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay"></div> -->
+
+<div class="container" *ngIf="vehicle">
+  <h3 class="close" (click)="closeModal()">X</h3>
+  <div class="mainmodel">
+    <h2>Dados do Condutor</h2>
+    <div class="content-camp-left">
+      <div class="camp-name-left">
+        <label for="plate">Placa:</label>
+        <label for="renavam">Renavam:</label>
+        <label for="mark">Marca:</label>
+        <label for="km">KM:</label>
+        <label for="uf">Estado:</label>
+      </div>
+      <div class="camp-input-left">
+        <input
+          type="text"
+          id="plate"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.plate"
+        />
+        <input
+          type="text"
+          id="renavam"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.renavam"
+        />
+        <input
+          type="text"
+          id="mark"
+          required
+          class="input-content"
+          maxlength="11"
+          [value]="vehicle.mark.name"
+        />
+        <input
+          type="text"
+          id="km"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="vehicle.km"
+        />
+        <input
+          type="text"
+          id="uf"
+          required
+          class="input-content"
+          [(ngModel)]="vehicle.uf"
+        />
+      </div>
+      <div class="content-camp-right">
+        <div class="camp-name-right">
+          <label for="model">Modelo:</label>
+          <label for="price">Preço:</label>
+          <label for="category">Categoria:</label>
+          <label for="chassis">Chassi:</label>
+          <label for="year">Ano:</label>
+        </div>
+        <div class="camp-input-right">
+          <input
+            type="text"
+            id="model"
+            required
+            class="input-content"
+            [(ngModel)]="vehicle.model"
+          />
+          <input
+            type="text"
+            id="price"
+            required
+            class="input-content"
+            [(ngModel)]="vehicle.price"
+          />
+          <input
+            type="text"
+            id="category"
+            required
+            class="input-content"
+            [value]="vehicle.category.name"
+          />
+          <input
+            type="text"
+            id="chassis"
+            required
+            class="input-content"
+            [(ngModel)]="vehicle.chassis"
+          />
+          <input
+            type="text"
+            id="year"
+            required
+            class="input-last"
+            [(ngModel)]="vehicle.year"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>

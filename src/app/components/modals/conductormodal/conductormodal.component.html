@@ -1,0 +1,113 @@
+<div class="container" *ngIf="conductor">
+  <h3 class="close" (click)="closeModal()">X</h3>
+  <div class="mainmodel">
+    <h2>Dados Completos do Condutor</h2>
+    <div class="loading-name">
+      <label for="name">Nome</label>
+      <input
+        class="input-loading"
+        type="text"
+        id="name"
+        [(ngModel)]="conductor.name"
+      />
+    </div>
+    <div class="content-camp">
+      <div class="camp-name">
+        <label for="cpf">CPF:</label>
+        <label for="cnh">CNH:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="cpf"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="conductor.cpf"
+        />
+        <input
+          type="text"
+          id="cnh"
+          required
+          class="input-content"
+          maxlength="11"
+          [(ngModel)]="conductor.cnh"
+        />
+      </div>
+      <div class="camp-name">
+        <label for="rg">RG:</label>
+        <label for="phone">Fone:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="rg"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.rg"
+        />
+        <input
+          type="text"
+          id="phone"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.phone"
+        />
+      </div>
+    </div>
+
+    <div class="name-address">
+      <label for="address">Endereço:</label>
+      <input
+        type="text"
+        id="address"
+        required
+        [(ngModel)]="conductor.address"
+      />
+    </div>
+
+    <div class="content-camp">
+      <div class="camp-name">
+        <label for="houseNumber">Número:</label>
+        <label for="district">Bairro:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="houseNumber"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.houseNumber"
+        />
+        <input
+          type="text"
+          id="district"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.district"
+        />
+      </div>
+      <div class="camp-name">
+        <label for="city">Cidade:</label>
+        <label for="state">Estado:</label>
+      </div>
+      <div class="camp-input">
+        <input
+          type="text"
+          id="city"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.city"
+        />
+        <input
+          type="text"
+          id="state"
+          required
+          class="input-content"
+          [(ngModel)]="conductor.state"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay"></div>

@@ -20,6 +20,9 @@ import { ViewVehicleComponent } from './components/hiddenButtons/view-vehicle/vi
 import { ViewCatAndMarkComponent } from './components/hiddenButtons/view-cat-and-mark/view-cat-and-mark.component';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ConductormodalComponent } from './components/modals/conductormodal/conductormodal.component';
+import { VehiclemodalComponent } from './components/modals/vehiclemodal/vehiclemodal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(ptBr);
 
@@ -35,6 +38,8 @@ registerLocaleData(ptBr);
     ViewConductorComponent,
     ViewVehicleComponent,
     ViewCatAndMarkComponent,
+    ConductormodalComponent,
+    VehiclemodalComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ registerLocaleData(ptBr);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

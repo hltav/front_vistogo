@@ -18,4 +18,11 @@ export class VehicledataService {
   createVehicles(data: any): Observable<any> {
     return this.http.post(this.baseUrl + 'vehicles', data);
   }
+  updateVehicle(id: number, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}vehicles/${id}`, data);
+  }
+
+  deleteVehicle(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}vehicles/${id}`);
+  }
 }

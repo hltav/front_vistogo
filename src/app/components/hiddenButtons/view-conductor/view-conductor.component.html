@@ -1,54 +1,52 @@
 <main class="container">
-    <h2>Lista de Veículos Registrados</h2>
-    <div class="content">
-      <div class="data-info">
-        <h4>Nome</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.name }}</p>
-      </div>
-      <div class="data-info">
-        <h4>CPF</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.cpf }}</p>
-      </div>
-      <div class="data-info">
-        <h4>CNH</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.cnh }}</p>
-      </div>
-      <div class="data-info">
-        <h4>RG</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.rg }}</p>
-      </div>
-      <div class="data-info">
-        <h4>Fone</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.phone }}</p>
-      </div>
-      <div class="data-info">
-        <h4>Endereço</h4>
-        <p *ngFor="let conductor of conductors">{{ conductor.address }}</p>
-      </div>
-      <div class="data-info">
-        <h4>Número</h4>
-        <p *ngFor="let conductor of conductors">
-          {{ conductor.houseNumber }}
-        </p>
-      </div>
-      <div class="data-info">
-        <h4>Bairro</h4>
-        <p *ngFor="let conductor of conductors">
-          {{ conductor.district }}
-        </p>
-      </div>
-      <div class="data-info">
-        <h4>Cidade</h4>
-        <p *ngFor="let conductor of conductors">
-          {{ conductor.city }}
-        </p>
-      </div>
-      <div class="data-info">
-        <h4>Estado</h4>
-        <p *ngFor="let conductor of conductors">
-          {{ conductor.state }}
-        </p>
+  <h2>Lista de Condutores Registrados</h2>
+  <div class="content">
+    <div class="data-info">
+      <h4>Nome</h4>
+      <p *ngFor="let conductor of conductors">
+        {{ formatName(conductor.name) }}
+      </p>
+    </div>
+    <div class="data-info">
+      <h4>CPF</h4>
+      <p *ngFor="let conductor of conductors">{{ conductor.cpf }}</p>
+    </div>
+    <div class="data-info">
+      <h4>CNH</h4>
+      <p *ngFor="let conductor of conductors">{{ conductor.cnh }}</p>
+    </div>
+    <div class="data-info">
+      <h4>RG</h4>
+      <p *ngFor="let conductor of conductors">{{ conductor.rg }}</p>
+    </div>
+    <div class="data-info">
+      <h4>Fone</h4>
+      <p *ngFor="let conductor of conductors">{{ conductor.phone }}</p>
+    </div>
+
+    <div class="data-info">
+      <h4 class="edit">Edit e Delete</h4>
+
+      <div class="images">
+        <div class="list">
+          <a
+            class="btn btn-primary"
+            (click)="openEditModal(conductor)"
+            *ngFor="let conductor of conductors"
+          >
+            <img src="../../../../assets/images/list.svg" alt="" />
+          </a>
+        </div>
+        <div class="trash">
+          <a
+            class="btn btn-primary"
+            (click)="deleteConductor(conductor)"
+            *ngFor="let conductor of conductors"
+          >
+            <img src="../../../../assets/images/trash.svg" alt="" />
+          </a>
+        </div>
       </div>
     </div>
-  </main>
-  
+  </div>
+</main>
