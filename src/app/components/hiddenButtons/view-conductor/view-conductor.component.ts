@@ -28,8 +28,7 @@ export class ViewConductorComponent {
   openEditModal(conductor: any): void {
     const dialogRef = this.dialog.open(ConductormodalComponent, {
       data: conductor,
-      width: '900px', 
-      minHeight: '700px', 
+      width: '900px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

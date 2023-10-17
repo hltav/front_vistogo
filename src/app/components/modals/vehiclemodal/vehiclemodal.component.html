@@ -1,123 +1,3 @@
-<!-- <div class="container" *ngIf="vehicle">
-  <h3 class="close" (click)="closeModal()">X</h3>
-  <div class="mainmodel">
-    <h2>Dados Completos do Condutor</h2>
-    <div class="content-camp">
-      <div class="camp-name">
-        <label for="plate">Placa:</label>
-        <label for="renavam">Renavam:</label>
-      </div>
-      <div class="camp-input">
-        <input
-          type="text"
-          id="plate"
-          required
-          class="input-content"
-          maxlength="11"
-          [(ngModel)]="vehicle.plate"
-        />
-        <input
-          type="text"
-          id="renavam"
-          required
-          class="input-content"
-          maxlength="11"
-          [(ngModel)]="vehicle.renavam"
-        />
-      </div>
-      <div class="camp-name">
-        <label for="model">Modelo:</label>
-        <label for="price">Preço:</label>
-      </div>
-      <div class="camp-input">
-        <input
-          type="text"
-          id="model"
-          required
-          class="input-content"
-          [(ngModel)]="vehicle.model"
-        />
-        <input
-          type="text"
-          id="price"
-          required
-          class="input-content"
-          [(ngModel)]="vehicle.price"
-        />
-      </div>
-    </div>
-    <div class="content-camp">
-      <div class="camp-name">
-        <label for="mark">Marca:</label>
-        <label for="km">KM:</label>
-      </div>
-      <div class="camp-input">
-        <input
-          type="text"
-          id="mark"
-          required
-          class="input-content"
-          maxlength="11"
-          [value]="vehicle.mark.name"
-        />
-        <input
-          type="text"
-          id="km"
-          required
-          class="input-content"
-          maxlength="11"
-          [(ngModel)]="vehicle.km"
-        />
-      </div>
-      <div class="camp-name">
-        <label for="category">Categoria:</label>
-        <label for="chassis">Chassi:</label>
-      </div>
-      <div class="camp-input">
-        <input
-          type="text"
-          id="category"
-          required
-          class="input-content"
-          [value]="vehicle.category.name"
-        />
-        <input
-          type="text"
-          id="chassis"
-          required
-          class="input-content"
-          [(ngModel)]="vehicle.chassis"
-        />
-      </div>
-    </div>
-
-    <div class="content-camp">
-      <div class="last-camp">
-        <label for="uf">Estado:</label>
-        <input
-          type="text"
-          id="uf"
-          required
-          class="input-last"
-          [(ngModel)]="vehicle.uf"
-        />
-      </div>
-      <div class="last-camp">
-        <label for="year">Ano:</label>
-
-        <input
-          type="text"
-          id="year"
-          required
-          class="input-last"
-          [(ngModel)]="vehicle.year"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-<div class="overlay"></div> -->
-
 <div class="container" *ngIf="vehicle">
   <h3 class="close" (click)="closeModal()">X</h3>
   <div class="mainmodel">
@@ -132,6 +12,7 @@
       </div>
       <div class="camp-input-left">
         <input
+          readonly
           type="text"
           id="plate"
           required
@@ -140,6 +21,7 @@
           [(ngModel)]="vehicle.plate"
         />
         <input
+          readonly
           type="text"
           id="renavam"
           required
@@ -148,6 +30,7 @@
           [(ngModel)]="vehicle.renavam"
         />
         <input
+          readonly
           type="text"
           id="mark"
           required
@@ -156,19 +39,30 @@
           [value]="vehicle.mark.name"
         />
         <input
+        [readonly]="!isEditable"
           type="text"
           id="km"
           required
           class="input-content"
           maxlength="11"
           [(ngModel)]="vehicle.km"
+          #firstInput
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
         <input
+        [readonly]="!isEditable"
           type="text"
           id="uf"
           required
           class="input-content"
           [(ngModel)]="vehicle.uf"
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
       </div>
       <div class="content-camp-right">
@@ -181,6 +75,7 @@
         </div>
         <div class="camp-input-right">
           <input
+            readonly
             type="text"
             id="model"
             required
@@ -188,13 +83,19 @@
             [(ngModel)]="vehicle.model"
           />
           <input
+          [readonly]="!isEditable"
             type="text"
             id="price"
             required
             class="input-content"
             [(ngModel)]="vehicle.price"
+            [ngClass]="{
+              'input-readonly': isEditable,
+              'input-content': !isEditable
+            }"
           />
           <input
+            readonly
             type="text"
             id="category"
             required
@@ -202,6 +103,7 @@
             [value]="vehicle.category.name"
           />
           <input
+            readonly
             type="text"
             id="chassis"
             required
@@ -209,15 +111,34 @@
             [(ngModel)]="vehicle.chassis"
           />
           <input
+            readonly
             type="text"
             id="year"
             required
-            class="input-last"
+            class="input-content input-last"
             [(ngModel)]="vehicle.year"
           />
         </div>
       </div>
     </div>
+
+    <div class="editionButton">
+      <div class="changeButtons" *ngIf="!isEditable">
+        <h4>Deseja alterar seus dados?</h4>
+        <div class="change">
+          <button (click)="enableEditing()">Sim</button>
+          <button (click)="closeModal()">Não</button>
+        </div>
+      </div>
+
+      <div class="changeButtons" *ngIf="isEditable">
+        <h4>Deseja salvar as alterações?</h4>
+        <div class="change">
+          <button (click)="saveChanges()">Salvar</button>
+          <button (click)="cancelChanges()">Cancelar</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="overlay"></div>
 </div>
+<div class="overlay"></div>

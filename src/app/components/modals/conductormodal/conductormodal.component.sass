@@ -31,17 +31,9 @@
 
             .input-loading
                 width: 100%
-
+                background-color: #f4f4f4
+                color: #a0a0a0
         input
-            border: 1px solid #00008B
-            border-radius: 5px
-            outline: none
-            height: 30px
-            margin-bottom: 10px
-            font-size: 22px
-            padding-left: 7px
-        
-        .input-loading
             border: 1px solid #00008B
             border-radius: 5px
             outline: none
@@ -65,10 +57,13 @@
             label
                 margin-right: 1%
 
-            input
+            .input-content
+                background-color: #f4f4f4
+                color: #a0a0a0
                 width: 100%
-            .input-loading
-                width:100%
+
+            .input-readonly
+                width: 100%
 
         .content-camp
             display: flex
@@ -81,6 +76,11 @@
             .camp-input
 
                 .input-content
+                    width: 100%
+                    background-color: #f4f4f4
+                    color: #a0a0a0
+
+                .input-readonly
                     width: 100%
 
         .submit-style
@@ -105,6 +105,34 @@
     h1
         text-align: center
         margin-bottom: 15px
+
+    .editionButton
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        color: #00008B
+
+        .changeButtons
+
+            h4
+                text-align: center
+
+            .change
+                display: flex
+                gap: 40px
+
+            button
+                color: #ffffff
+                border-radius: 5px
+                border: none
+                cursor: pointer
+                font-size: 18px
+                font-weight: 700
+                background-color: #00008B
+                padding: 10px
+                margin: 30px 0
+                width: 100px
 
 .overlay
     background: #000

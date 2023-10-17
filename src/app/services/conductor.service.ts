@@ -15,18 +15,8 @@ export class ConductorService {
   }
 
   getConductorById(id: number): Observable<any> {
-    console.log(id);
-    return this.http.get(`${this.baseUrl}conductors/${id}`);
+        return this.http.get(`${this.baseUrl}conductors/${id}`);
   }
-
-  // getConductorById(id: number): Observable<any> {
-  //   console.log(id);
-  //   return this.http.get(`${this.baseUrl}/conductors/${id}`).pipe(
-  //     catchError((error: any) => {
-  //       throw error;
-  //     })
-  //   );
-  // }
 
   createConductor(data: any): Observable<any> {
     return this.http.post(this.baseUrl + 'conductors', data);

@@ -23,6 +23,10 @@ import { registerLocaleData } from '@angular/common';
 import { ConductormodalComponent } from './components/modals/conductormodal/conductormodal.component';
 import { VehiclemodalComponent } from './components/modals/vehiclemodal/vehiclemodal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RegisterusersComponent } from './components/users/registerusers/registerusers.component';
+import { LoginusersComponent } from './components/users/loginusers/loginusers.component';
+import { AdminComponent } from './components/principal/admin/admin.component';
+import { HomeComponent } from './components/principal/home/home.component';
 
 registerLocaleData(ptBr);
 
@@ -40,6 +44,10 @@ registerLocaleData(ptBr);
     ViewCatAndMarkComponent,
     ConductormodalComponent,
     VehiclemodalComponent,
+    RegisterusersComponent,
+    LoginusersComponent,
+    AdminComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

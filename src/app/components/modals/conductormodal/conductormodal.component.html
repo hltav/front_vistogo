@@ -5,6 +5,7 @@
     <div class="loading-name">
       <label for="name">Nome</label>
       <input
+        readonly
         class="input-loading"
         type="text"
         id="name"
@@ -18,6 +19,7 @@
       </div>
       <div class="camp-input">
         <input
+          readonly
           type="text"
           id="cpf"
           required
@@ -26,6 +28,7 @@
           [(ngModel)]="conductor.cpf"
         />
         <input
+          readonly
           type="text"
           id="cnh"
           required
@@ -40,6 +43,7 @@
       </div>
       <div class="camp-input">
         <input
+          readonly
           type="text"
           id="rg"
           required
@@ -47,11 +51,17 @@
           [(ngModel)]="conductor.rg"
         />
         <input
+          [readonly]="!isEditable"
           type="text"
           id="phone"
           required
-          class="input-content"
+          class="input-content input-readonly"
           [(ngModel)]="conductor.phone"
+          #firstInput
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
       </div>
     </div>
@@ -59,10 +69,16 @@
     <div class="name-address">
       <label for="address">Endereço:</label>
       <input
+        [readonly]="!isEditable"
         type="text"
         id="address"
         required
         [(ngModel)]="conductor.address"
+        class="input-content input-readonly"
+        [ngClass]="{
+          'input-readonly': isEditable,
+          'input-content': !isEditable
+        }"
       />
     </div>
 
@@ -73,18 +89,28 @@
       </div>
       <div class="camp-input">
         <input
+          [readonly]="!isEditable"
           type="text"
           id="houseNumber"
           required
-          class="input-content"
+          class="input-content input-readonly"
           [(ngModel)]="conductor.houseNumber"
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
         <input
+          [readonly]="!isEditable"
           type="text"
           id="district"
           required
-          class="input-content"
+          class="input-content input-readonly"
           [(ngModel)]="conductor.district"
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
       </div>
       <div class="camp-name">
@@ -93,19 +119,47 @@
       </div>
       <div class="camp-input">
         <input
+          [readonly]="!isEditable"
           type="text"
           id="city"
           required
-          class="input-content"
+          class="input-content input-readonly"
           [(ngModel)]="conductor.city"
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
         <input
+          [readonly]="!isEditable"
           type="text"
           id="state"
           required
-          class="input-content"
+          class="input-content input-readonly"
           [(ngModel)]="conductor.state"
+          [ngClass]="{
+            'input-readonly': isEditable,
+            'input-content': !isEditable
+          }"
         />
+      </div>
+    </div>
+  </div>
+
+  <div class="editionButton">
+    <div class="changeButtons" *ngIf="!isEditable">
+      <h4>Deseja alterar seus dados?</h4>
+      <div class="change">
+        <button (click)="enableEditing()">Sim</button>
+        <button (click)="closeModal()">Não</button>
+      </div>
+    </div>
+
+    <div class="changeButtons" *ngIf="isEditable">
+      <h4>Deseja salvar as alterações?</h4>
+      <div class="change">
+        <button (click)="saveChanges()">Salvar</button>
+        <button (click)="cancelChanges()">Cancelar</button>
       </div>
     </div>
   </div>

@@ -11,7 +11,6 @@ export class VehicledataService {
   constructor(private http: HttpClient) {}
 
   getVehicles(): Observable<any> {
-    console.log(this.getVehicles)
     return this.http.get(this.baseUrl + 'vehicles');
   }
 

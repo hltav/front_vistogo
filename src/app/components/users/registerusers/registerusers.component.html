@@ -1,0 +1,44 @@
+<!-- <main class="container">
+    <section class="content">
+
+        <h2>Registre seu usuário</h2>
+        <div class="content-camps">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username">
+        </div>
+        <div class="content-camps">
+            <label for="email">Seu email:</label>
+            <input type="text" id="email">
+        </div>
+        <div class="content-camps">
+            <label for="password">Digite uma senha:</label>
+            <input type="text" id="password">
+        </div>
+        <div class="content-camps">
+            <label for="confirmpassword">Confirme sua senha:</label>
+            <input type="text" id="confirmpassword">
+        </div>
+    </section>
+</main> -->
+
+<main class="container">
+    <section class="content-login"  [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <h2>Cadastre-se</h2>
+        
+        <label for="name">Nome</label>
+        <input type="text" id="name" formControlName="name">
+        <label for="email">Seu Email</label>
+        <input type="text" id="email" formControlName="email">
+        <label for="password">Crie sua senha</label>
+        <input type="password" id="password" formControlName="password">
+        <label for="confirmPassword">Confirme sua Senha</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+             
+        <div>
+            <input type="checkbox" id="termsAccepted" formControlName="termsAccepted">
+            <label for="termsAccepted">Aceitar os termos de uso e politica de privacidade</label>
+        </div>
+
+        <button type="submit" (click)="registerUser()" >Cadastrar</button>
+    </section>
+</main>
