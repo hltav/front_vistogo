@@ -1,49 +1,13 @@
-// .container
-//     display: flex
-//     justify-content: center
-//     align-items: center
-
-//     .content
-//         width: 450px
-//         padding: 50px
-//         display: flex
-//         flex-direction: column
-//         background-color: #ffffff
-//         color: #00008b
-//         margin-top: 40px
-//         gap: 20px
-
-//         h2
-//             text-align: center
-//             margin-bottom: 15px
-
-//         .content-camps
-//             display: flex
-//             flex-direction: column
-//             gap: 5px
-
-//             label
-//                 font-size: 18px
-//                 font-weight: 700
-
-//             input
-//                 border: 1px solid #00008B
-//                 border-radius: 5px
-//                 outline: none
-//                 height: 30px
-//                 margin-bottom: 10px
-//                 font-size: 22px
-//                 padding-left: 7px
-
-    main 
+.container
     width: 60%
+    height: 80vh
     margin: 30px auto
     display: flex
     justify-content: center
     align-items: center
-    border: 4px solid #003399
     border-radius: 6px
-    padding: 2%    
+    padding: 2%
+    color: #00008b
 
     .content-text
         width: 50%
@@ -61,52 +25,60 @@
             font-weight: 500
             width: 75%
             text-align: justify
-    
+
     .content-login
         width: 50%
         display: flex
         flex-direction: column
         gap: 10px
-        background: #003399
         padding: 4%
         border-radius: 0 5px 5px 0
+        background-color: #ffffff
+        border-radius: 10px
 
         h2
-            color: #fff
+
             text-align: center
             text-transform: uppercase
         p
-            color: #fff
+
             text-align: justify
             font-weight: 500
 
         label
-            color: #fff
+
             font-weight: 600
 
         input
-            border: none
+            border: 2px solid #00008b
             border-radius: 5px
             height: 28px
             width: 100%
             margin-bottom: 4%
             padding-left: 5px
-        
-        div
+            font-size: 20px
+            color: #00008b
+
+        .terms
             display: flex
             align-items: center
-            gap: 5px
             position: relative
+            gap: 5px
+
+            .accepted
+                display: flex
+                justify-content: center
 
             input
                 width: 13px
+                border: 1px solid #00008b
 
             p
                 font-size: 15px
                 position: absolute
                 left: 5%
                 top: 15%
-            
+
         button
             margin: auto
             height: 30px
@@ -115,8 +87,10 @@
             border: none
             text-transform: uppercase
             font-weight: 700
-            color: #003399
+            background-color: #00008b
+            color: #ffffff
             cursor: pointer
+            font-size: 13px
             &:hover
                 opacity: .6
             &:active

@@ -1,1 +1,23 @@
-<p>loginusers works!</p>
+<main>
+  <section class="content-login">
+    <h2>Login</h2>
+    <p>
+      Faça seu login e comece a cadastrar suas contas, para curtir e seguir
+      perfis nas redes sociais e obter seus lucros.
+    </p>
+
+    <label for="email">Seu Email</label>
+    <input type="text" id="email" [(ngModel)]="email" />
+
+    <label for="password">Digite sua senha</label>
+    <input type="password" id="password" [(ngModel)]="password" />
+
+    <button (click)="loginUser()">Login</button>
+
+    <div>
+      <p>Ainda não é registrado?</p>
+
+      <a routerLink="/register">Clique aqui e inscreva-se!</a>
+    </div>
+  </section>
+</main>
