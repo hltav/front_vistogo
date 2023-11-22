@@ -6,12 +6,12 @@ import { Observable, catchError, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  private API_URL = 'http://localhost:3000';
+   private baseUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
   findUserById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/users/${id}`).pipe(
+      return this.http.get<any>(`${this.baseUrl}/users/${id}`).pipe(
       catchError((error: any) => {
         if (error.status === 404) {
           return throwError('User not found');
@@ -21,16 +21,14 @@ export class UserService {
     );
   }
 
-  findAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API_URL}/users`).pipe(
-      catchError(() => {
-        return throwError('Internal Server Error');
-      })
-    );
+  getUsers(): Observable<any> {
+    
+    return this.http.get(this.baseUrl + 'conductors');
   }
 
   findUserByEmail(email: string): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/users?email=${email}`).pipe(
+    console.log(email)
+    return this.http.get<any>(`${this.baseUrl}/users?email=${email}`).pipe(
       catchError(() => {
         return throwError('Internal Server Error');
       })
@@ -38,7 +36,7 @@ export class UserService {
   }
 
   createUser(userData: any): Observable<any> {
-    return this.http.post<any>(`${this.API_URL}/users`, userData).pipe(
+    return this.http.post<any>(`${this.baseUrl}/users`, userData).pipe(
       catchError((error: any) => {
         if (error.status === 409) {
           return throwError('Email already exists');
@@ -49,7 +47,7 @@ export class UserService {
   }
 
   updateUser(id: number, userData: any): Observable<any> {
-    return this.http.put<any>(`${this.API_URL}/users/${id}`, userData).pipe(
+    return this.http.put<any>(`${this.baseUrl}/users/${id}`, userData).pipe(
       catchError((error: any) => {
         if (error.status === 404) {
           return throwError('User not found');
@@ -60,7 +58,7 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.API_URL}/users/${id}`).pipe(
+    return this.http.delete<any>(`${this.baseUrl}/users/${id}`).pipe(
       catchError((error: any) => {
         if (error.status === 404) {
           return throwError('User not found');

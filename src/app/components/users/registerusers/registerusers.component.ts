@@ -9,14 +9,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./registerusers.component.sass']
 })
 export class RegisterusersComponent {
-
   registerForm!: FormGroup
   isEmailRegistered = false
 
   constructor(
     private formBuilder: FormBuilder,
     private userservice: UserService,
-   
     private router: Router,
   ) {}
 

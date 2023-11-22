@@ -1,39 +1,46 @@
 <main class="container">
-  <section
-    class="content-login"
-    [formGroup]="registerForm"
-    (ngSubmit)="registerUser()"
-  >
+  <section class="content-login">
     <h2>Cadastre-se</h2>
+    <form  (ngSubmit)="registerUser()">
+      <label for="name">Nome</label>
+      <input type="text" id="name" formControlName="name" />
+      <label for="email">Seu Email</label>
+      <input
+        type="text"
+        id="email"
+        autocomplete="username"
+        formControlName="email"
+      />
+      <label for="password">Crie sua senha</label>
+      <input
+        type="password"
+        id="password"
+        autocomplete="new-password"
+        formControlName="password"
+      />
+      <label for="confirmPassword">Confirme sua Senha</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
 
-    <label for="name">Nome</label>
-    <input type="text" id="name" formControlName="name" />
-    <label for="email">Seu Email</label>
-    <input type="text" id="email" formControlName="email" />
-    <label for="password">Crie sua senha</label>
-    <input type="password" id="password" formControlName="password" />
-    <label for="confirmPassword">Confirme sua Senha</label>
-    <input
-      type="password"
-      id="confirmPassword"
-      formControlName="confirmPassword"
-    />
-
-    <div class="terms">
-      <div class="accepted">
-        <input
-          type="checkbox"
-          id="termsAccepted"
-          formControlName="termsAccepted"
-        />
+      <div class="terms">
+        <div class="accepted">
+          <input
+            type="checkbox"
+            id="termsAccepted"
+            formControlName="termsAccepted"
+          />
+        </div>
+        <div class="accepted">
+          <label for="termsAccepted"
+            >Aceitar os termos de uso e politica de privacidade</label
+          >
+        </div>
       </div>
-      <div class="accepted">
-        <label for="termsAccepted"
-          >Aceitar os termos de uso e politica de privacidade</label
-        >
-      </div>
-    </div>
 
-    <button type="submit" (click)="registerUser()">Cadastrar</button>
+      <button type="submit" onclick="registerUser" >Cadastrar</button>
+    </form>
   </section>
 </main>

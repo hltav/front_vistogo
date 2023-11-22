@@ -1,18 +1,18 @@
 <main>
   <section class="content-login">
     <h2>Login</h2>
-    <p>
-      Faça seu login e comece a cadastrar suas contas, para curtir e seguir
-      perfis nas redes sociais e obter seus lucros.
-    </p>
+    
 
-    <label for="email">Seu Email</label>
-    <input type="text" id="email" [(ngModel)]="email" />
-
-    <label for="password">Digite sua senha</label>
-    <input type="password" id="password" [(ngModel)]="password" />
-
-    <button (click)="loginUser()">Login</button>
+    <form action="#">
+      <label for="email">Seu Email</label>
+      <input type="text" id="email" autocomplete="username"  name="email" />
+    
+      <label for="password">Digite sua senha</label>
+      <input type="password" id="password" autocomplete="current-password" name="password" />
+    
+      <button type="button" (click)="loginUser()">Login</button>
+    </form>
+    
 
     <div>
       <p>Ainda não é registrado?</p>
