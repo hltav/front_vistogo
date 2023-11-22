@@ -51,6 +51,8 @@ export class RegisterusersComponent {
           }, 3000)
         },
         (error) => {
+             console.log(error)
+
           if (error.error === 'Email já cadastrado') {
             alert('Email já cadastrado!')
           } else {
